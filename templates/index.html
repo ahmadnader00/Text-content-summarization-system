@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='/css/mycss.css')}}">
+</head>
+
+<body" onsubmit="countWord1()">
+    <header class="masthead">
+        
+          </div>
+        <div class="container px-4 px-lg-5 h-70">
+            <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
+                <div class="col-lg-8 align-self-end">
+                    <h1 class="text-white">text summarization</h1>
+                    <hr class="divider" />
+                </div>
+                <div class="col-lg-8 align-self-baseline">
+                    <p class="text-white-75" >
+                        Our website contains many services related to summarizing textual content,
+                        including summarizing by placing an Internet link to an article, topic, etc., or by pasting the
+                        content to be summarized. </p>
+                    <a class="btn btn-primary btn-xl" href="#urlsum">go to summarizing link</a>
+                    <a class="btn btn-primary btn-xl" href="#textsum">go to summarizing text</a>
+                    <br><br>
+                    <a class="btn btn-primary btn-xl" href="#pdf">go to summarizing pdf</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="urlbody">
+        <div class="container px-4 px-lg-5 h-100" id="urlsum">
+            <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
+                <div class="col-lg-8 align-self-start">
+                    <h1 class="text-white">Enter Link Website</h1>
+                </div>
+                <div class="col-lg-8 align-self-baseline">
+                    <form method="post">
+                        <div class="form-group">
+                            <input placeholder="http://" class="form-field" type="url" id="url" name="url" size="50">
+                            <br>
+                            <label>how much want summary</label>
+                            <br>
+                            <input type="range" id="rangeurl" class="myrange" name="rangeurl" min="5" max="15"
+                                value="10" oninput="showValue()" >
+                                <p>Value: <span id="rangeValue"></span></p>
+                            <br>
+                            <br>
+                            <input onclick="myFunction()" value="summary" class="btn btn-primary btn-xl" type="submit"
+                                name="submit" id="submit">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="textbody">
+        <div class="container px-4 px-lg-5 h-100" id="textsum">
+            <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
+                <h1 class="text-white">Enter text in box for summary</h1>
+                <div class="col">
+                    <form method="post">
+                        <div class="form-group">
+                            <textarea placeholder="enter your text" oninput="countWord()"
+                                class="form-control teks-input" id="textforsummer" name="textforsummer"></textarea>
+                            <p id="pfortext"> Word Count:
+                                <span id="show">0</span>
+                            </p>
+                            <label>how much want summary</label>
+                            <br>
+                            <input type="range" id="rangetext" class="myrange" name="rangetext" min="3" max="15"
+                            oninput="showValue1()"   value="10" >
+                            <p>Value: <span id="rangeValue1"></span></p>
+                            <br>
+                            <input onclick="myFunction()" value="summary" class="btn btn-primary btn-xl" type="submit"
+                                name="sub" id="sub">
+                            <button class="btn btn-primary btn-xl" type="reset">cleartext</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="filebody">
+        <div class="container px-4 px-lg-5 h-100" id="pdf">
+            <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
+                <div class="col-lg-8 align-self-start">
+                    <h1 class="text-white">choose your file</h1>
+                </div>
+                <div class="col-lg-8 align-self-baseline">
+                    <form method="post" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label for="fileElem" class="drop-container">
+                                <input type="file" id="fileElem" name="pdfforsummer" accept=".pdf" required>
+                            </label>
+                            <br>
+                            <label>How much summary do you want?</label>
+                            <br>
+                            <input type="range" id="rangepdf" class="myrange" name="rangepdf" min="3" max="15"
+                            oninput="showValue2()"  value="10">
+                            <p>Value: <span id="rangeValue2"></span></p>
+                            <br>
+                            <br>
+                            <input onclick="myFunction()" value="Summarize" class="btn btn-primary btn-xl" type="submit"
+                                name="pdfforsummer" id="pdfforsummer">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="resultbody" id="resultbody1">
+        <div class="container px-4 px-lg-5 h-100">
+            <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
+                <button onclick="countWord1()" class="accordion">LUHN</button>
+                <div class="panel">
+                    <p id="result1">{{summertext}}{{summer}}</p>
+                    <p> Word Count:
+                        <span id="showres">0</span>
+                    </p>
+                    <button class="mycopy" id="mycopy1" onclick="copyElementText()">Copy text</button>
+                </div>
+                <button onclick="countWord2()" class="accordion">LSA</button>
+                <div class="panel">
+                    <p id="result2"> {{summertext_lsa}}{{summer_lsa}}</p>
+                    <p> Word Count:
+                        <span id="showres2">0</span>
+                    </p>
+                    <button class="mycopy" id="mycopy2" onclick="mycopy1()">Copy text</button>
+                </div>
+                <button onclick="countWord3()" class="accordion">TEXT RANK</button>
+                <div class="panel">
+                    <p id="result3">{{summertextrank}} {{summer_textrank}} {{summertext_textrank}}</p>
+                    <p> Word Count:
+                        <span id="showres3">0</span>
+                    </p>
+                    <button class="mycopy" id="mycopy3" onclick="mycopy2()">Copy text</button>
+                </div>
+
+            </div>
+        </div>
+        <div id="error-message">
+            <p> </p>
+          </div>
+    </div>
+    {% if error %}
+<script>
+alert("{{ error }}");
+</script>
+{% endif %}
+
+    <script src="{{url_for('static',filename='/js/myscript.js')}}"></script>
+    <script src="{{url_for('static',filename='/js/bootstrap.bundle.min.js')}}"></script>
+    </body>
+
+</html>
