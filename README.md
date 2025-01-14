@@ -32,6 +32,8 @@ order. When clicking on (text summarizing to go), the user will be taken to the 
 Plain text. When clicking on (link summarizing to go), the user will be taken to the summary interface by adding
 The user sent a link to a website containing an article. When clicking on “file summarizing to go,” the user will be taken to the interface
 Summarization by adding the user to a PDF file.
+
+
 ![Capture](https://github.com/user-attachments/assets/41fd7767-cd2e-4629-8fe3-35b95a34d334)
 
 
