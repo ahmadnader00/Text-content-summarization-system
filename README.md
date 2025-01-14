@@ -22,3 +22,43 @@ other meaningful units, it examines the words in the document.
 languages) because different capital letters in different papers can be a problem. This technique then
 unifies all the words of the text The document in one feature.
 • Removal Noise: Punctuation marks and special characters are among the many extra characters found in most text materials.
+
+
+
+
+Main interface:
+ This interface contains the name of the service provided by the system (summarizaton Text) and a simple definition of the functions it provides
+order. When clicking on (text summarizing to go), the user will be taken to the summary interface by adding the user
+Plain text. When clicking on (link summarizing to go), the user will be taken to the summary interface by adding
+The user sent a link to a website containing an article. When clicking on “file summarizing to go,” the user will be taken to the interface
+Summarization by adding the user to a PDF file.
+![Capture](https://github.com/user-attachments/assets/41fd7767-cd2e-4629-8fe3-35b95a34d334)
+
+
+Summary interface by adding a link:
+ In this interface, the user can add a link to a website that contains an article, and specify the level of summary he wants
+Then click on “summary” to be taken to the summary result interface.
+
+![Capture](https://github.com/user-attachments/assets/62108892-2a33-42a9-ab27-615ca6b12ec5)
+
+Summary interface by adding text:
+ In this interface, the user can add plain text, specify the level of summary he wants, and then click on
+summary to move it to the summary result interface
+
+
+![Capture](https://github.com/user-attachments/assets/dd88a423-8d4a-4d7f-b0e7-04f52191af22)
+
+
+Summary interface by adding a file:
+ In this interface, the user can add a pdf file, specify the level of summary he wants, and then click
+on (summary) to move it to the summary result interface
+
+![Capture](https://github.com/user-attachments/assets/0362ddb9-0d4e-49f6-b6ad-32e03c196ed5)
+
+Summarization result interface:
+ In this interface, the summary result using the third algorithm is displayed when you click on the algorithm name
+The summary result is displayed to the user, and the user can copy the result.
+
+![Capture](https://github.com/user-attachments/assets/eca69359-e5b2-43de-8429-8a7c13352577)
+
+
